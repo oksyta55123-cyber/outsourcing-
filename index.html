@@ -1,0 +1,1044 @@
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LIMBERT | Комплексный аутсорсинг бизнеса</title>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap');
+
+:root {
+  --dark: #103d2c;
+  --deep: #08291e;
+  --green: #286b49;
+  --accent: #77aa83;
+  --light: #eaf4e9;
+  --white: #ffffff;
+  --text: #294538;
+  --muted: #708276;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Manrope', sans-serif;
+  background: #edf5eb;
+  color: var(--text);
+  overflow-x: hidden;
+  position: relative;
+}
+
+/* ФИРМЕННЫЕ ВОДЯНЫЕ ЗНАКИ */
+
+body::before {
+  content: "LIMBERT";
+  position: fixed;
+  z-index: -1;
+  top: 38%;
+  left: -3%;
+  font-size: clamp(100px, 19vw, 260px);
+  font-weight: 800;
+  letter-spacing: 15px;
+  color: rgba(16,61,44,.035);
+  white-space: nowrap;
+  pointer-events: none;
+}
+
+section {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+}
+
+section::after {
+  content: "LIMBERT";
+  position: absolute;
+  z-index: -1;
+  right: -20px;
+  bottom: -30px;
+  font-size: clamp(65px, 12vw, 150px);
+  font-weight: 800;
+  letter-spacing: 9px;
+  color: rgba(16,61,44,.035);
+  pointer-events: none;
+  white-space: nowrap;
+}
+
+.container {
+  width: min(1160px, 90%);
+  margin: auto;
+}
+
+/* HEADER */
+
+header {
+  padding: 22px 0;
+  background: rgba(237,245,235,.88);
+  backdrop-filter: blur(12px);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  border-bottom: 1px solid rgba(16,61,44,.08);
+}
+
+.nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  font-size: 28px;
+  font-weight: 800;
+  letter-spacing: 4px;
+  color: var(--dark);
+}
+
+.logo span {
+  color: var(--accent);
+}
+
+.nav-link {
+  text-decoration: none;
+  color: var(--dark);
+  border: 1px solid #a9c7ad;
+  border-radius: 40px;
+  padding: 11px 24px;
+  font-size: 13px;
+  font-weight: 700;
+  transition: .3s;
+}
+
+.nav-link:hover {
+  background: var(--dark);
+  color: white;
+}
+
+/* HERO */
+
+.hero {
+  padding: 75px 0 95px;
+  background:
+    radial-gradient(circle at 75% 35%, #c9e3cc 0%, transparent 37%),
+    linear-gradient(130deg,#edf5eb,#e0eee0);
+}
+
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1.15fr .85fr;
+  align-items: center;
+  gap: 25px;
+}
+
+.eyebrow {
+  display: inline-block;
+  background: rgba(112,169,131,.16);
+  color: #447a55;
+  padding: 9px 17px;
+  border-radius: 30px;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 2px;
+  margin-bottom: 25px;
+}
+
+.hero h1 {
+  font-size: clamp(39px,5.1vw,65px);
+  line-height: 1.12;
+  letter-spacing: -2.5px;
+  font-weight: 800;
+  background: linear-gradient(
+    115deg,
+    #082b1f,
+    #236345,
+    #79aa85
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  margin-bottom: 25px;
+}
+
+.hero-description {
+  font-size: 17px;
+  line-height: 1.8;
+  color: #4d6858;
+  margin-bottom: 18px;
+}
+
+.hero-secondary {
+  color: #718276;
+  font-size: 14px;
+  line-height: 1.9;
+  margin-bottom: 27px;
+}
+
+.hero-button {
+  display: inline-block;
+  text-decoration: none;
+  background: var(--dark);
+  color: white;
+  padding: 16px 29px;
+  border-radius: 40px;
+  font-size: 14px;
+  font-weight: 700;
+  transition: .3s;
+  box-shadow: 0 12px 25px rgba(16,61,44,.16);
+}
+
+.hero-button:hover {
+  background: #32734e;
+  transform: translateY(-4px);
+}
+
+.hero-note {
+  display: block;
+  color: #447a55;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 1.5px;
+  margin-top: 25px;
+}
+
+/* ИЛЛЮСТРАЦИЯ */
+
+.illustration {
+  position: relative;
+  width: 100%;
+  max-width: 490px;
+  margin: auto;
+  animation: float 5s ease-in-out infinite;
+}
+
+.illustration svg {
+  width: 100%;
+  height: auto;
+  overflow: visible;
+  filter: drop-shadow(0 25px 25px rgba(16,61,44,.12));
+}
+
+@keyframes float {
+  0%,100% { transform: translateY(0); }
+  50% { transform: translateY(-12px); }
+}
+
+/* SECTION TITLES */
+
+section.content-section {
+  padding: 85px 0;
+}
+
+.section-label {
+  color: #639473;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-size: 11px;
+  font-weight: 800;
+  margin-bottom: 13px;
+}
+
+.section-title {
+  color: var(--dark);
+  font-size: clamp(30px,4vw,43px);
+  line-height: 1.2;
+  letter-spacing: -1.4px;
+  margin-bottom: 17px;
+}
+
+.section-description {
+  color: var(--muted);
+  font-size: 15px;
+  max-width: 720px;
+  line-height: 1.8;
+  margin-bottom: 38px;
+}
+
+/* BENEFITS */
+
+.benefits {
+  background: #f7faf5;
+}
+
+.benefit-grid {
+  display: grid;
+  grid-template-columns: repeat(2,1fr);
+  gap: 23px;
+}
+
+.benefit-card {
+  background: white;
+  border: 1px solid #e3ede2;
+  padding: 32px;
+  border-radius: 23px;
+  transition: .35s ease;
+  position: relative;
+}
+
+.benefit-card:hover {
+  transform: translateY(-9px);
+  border-color: #8eb89a;
+  box-shadow: 0 18px 38px rgba(16,61,44,.10);
+}
+
+.card-icon {
+  width: 57px;
+  height: 57px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #e8f3e8;
+  border-radius: 17px;
+  font-size: 25px;
+  margin-bottom: 22px;
+}
+
+.benefit-card h3 {
+  color: var(--dark);
+  font-size: 19px;
+  margin-bottom: 12px;
+}
+
+.benefit-card p {
+  color: #718276;
+  font-size: 14px;
+  line-height: 1.85;
+}
+
+/* TOOLS */
+
+.tools {
+  background: linear-gradient(130deg,#103d2c,#08291e);
+  color: white;
+}
+
+.tools::after {
+  color: rgba(255,255,255,.035);
+}
+
+.tools .section-title { color: white; }
+.tools .section-description { color: #b9d0be; }
+
+.tag-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 13px;
+}
+
+.tag {
+  padding: 13px 21px;
+  border-radius: 40px;
+  background: rgba(255,255,255,.07);
+  border: 1px solid rgba(255,255,255,.2);
+  color: #e7f3e8;
+  font-size: 13px;
+  font-weight: 600;
+  transition: .3s;
+}
+
+.tag:hover {
+  background: #8cbb97;
+  color: #103d2c;
+  transform: translateY(-4px);
+}
+
+/* CASES */
+
+.cases {
+  background: #edf5eb;
+}
+
+.case-grid {
+  display: grid;
+  grid-template-columns: repeat(2,1fr);
+  gap: 22px;
+}
+
+.case-card {
+  background: white;
+  padding: 30px;
+  border-radius: 20px;
+  border: 1px solid #e0ebe0;
+  position: relative;
+  transition: .3s;
+}
+
+.case-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 16px 35px rgba(16,61,44,.09);
+}
+
+.case-number {
+  color: #77a985;
+  font-size: 31px;
+  font-weight: 800;
+  margin-bottom: 12px;
+}
+
+.case-card h3 {
+  font-size: 19px;
+  color: var(--dark);
+  margin-bottom: 12px;
+}
+
+.case-card p {
+  color: #718276;
+  font-size: 14px;
+  line-height: 1.8;
+}
+
+/* SECURITY */
+
+.security {
+  background: #f7faf5;
+}
+
+.security-box {
+  background: linear-gradient(120deg,#dceee0,#edf6ed);
+  border: 1px solid #d3e7d5;
+  border-radius: 27px;
+  padding: 48px;
+  display: grid;
+  grid-template-columns: 1fr 130px;
+  gap: 25px;
+  align-items: center;
+}
+
+.security-box h2 {
+  color: var(--dark);
+  font-size: clamp(27px,3.5vw,38px);
+  line-height: 1.25;
+  margin-bottom: 17px;
+}
+
+.security-box p {
+  color: #587061;
+  font-size: 14px;
+  line-height: 1.9;
+}
+
+.shield {
+  font-size: 85px;
+  text-align: center;
+}
+
+/* CONTACTS */
+
+.contacts {
+  background: linear-gradient(135deg,#103d2c,#08291e);
+  text-align: center;
+  color: white;
+  padding: 85px 0;
+}
+
+.contacts::after {
+  color: rgba(255,255,255,.04);
+}
+
+.contacts h2 {
+  font-size: clamp(33px,5vw,50px);
+  line-height: 1.2;
+  margin-bottom: 20px;
+}
+
+.contacts p {
+  color: #c1d6c5;
+  font-size: 15px;
+  margin-bottom: 35px;
+}
+
+.contact-links {
+  display: flex;
+  justify-content: center;
+  gap: 17px;
+  flex-wrap: wrap;
+}
+
+.contact-links a {
+  color: white;
+  text-decoration: none;
+  border: 1px solid rgba(255,255,255,.3);
+  padding: 15px 25px;
+  border-radius: 40px;
+  transition: .3s;
+  font-size: 14px;
+}
+
+.contact-links a:hover {
+  background: #80b18b;
+  color: #08291e;
+}
+
+/* FOOTER */
+
+footer {
+  padding: 25px 0;
+  text-align: center;
+  background: #071f17;
+  color: #9cb8a2;
+  font-size: 12px;
+  letter-spacing: 1px;
+}
+
+/* ANIMATIONS */
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(25px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.hero-content {
+  animation: fadeUp .9s ease both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation: none !important;
+    transition: none !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* MOBILE */
+
+@media(max-width:850px) {
+  .hero-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .illustration {
+    max-width: 410px;
+    margin-top: 25px;
+  }
+}
+
+@media(max-width:650px) {
+  .benefit-grid,
+  .case-grid {
+    grid-template-columns: 1fr;
+  }
+
+  section.content-section {
+    padding: 65px 0;
+  }
+
+  .hero {
+    padding: 55px 0 65px;
+  }
+
+  .hero h1 {
+    font-size: 42px;
+    letter-spacing: -1.5px;
+  }
+
+  .hero-description {
+    font-size: 15px;
+  }
+
+  .benefit-card,
+  .case-card {
+    padding: 25px;
+  }
+
+  .security-box {
+    grid-template-columns: 1fr;
+    padding: 30px 24px;
+  }
+
+  .shield {
+    text-align: left;
+    font-size: 55px;
+  }
+
+  .logo { font-size: 22px; }
+
+  .nav-link {
+    font-size: 11px;
+    padding: 9px 13px;
+  }
+
+  .contact-links {
+    flex-direction: column;
+  }
+
+  .contact-links a {
+    width: 100%;
+  }
+}
+
+@media(max-width:380px) {
+  .hero h1 { font-size: 36px; }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <div class="container nav">
+    <div class="logo">LIMBERT<span>.</span></div>
+    <a href="#contacts" class="nav-link">Связаться с нами ↗</a>
+  </div>
+</header>
+
+<main>
+
+<!-- ГЛАВНЫЙ ЭКРАН -->
+
+<section class="hero">
+  <div class="container hero-grid">
+
+    <div class="hero-content">
+
+      <div class="eyebrow">Управление бизнесом нового уровня</div>
+
+      <h1>
+        КОМПЛЕКСНЫЙ
+        АУТСОРСИНГ ДЛЯ
+        ВАШЕГО БИЗНЕСА
+      </h1>
+
+      <p class="hero-description">
+        Управление, бухгалтерия, кадры, юристы, экономисты,
+        IT и тендерный отдел в одной управляющей компании.
+        Сократите расходы до 40% без потери качества.
+      </p>
+
+      <p class="hero-secondary">
+        Передайте рутинные и сложные процессы команде
+        профильных экспертов. Мы полностью берем на себя
+        ответственность за результат, помогая вам
+        фокусироваться на развитии компании.
+      </p>
+
+      <a href="#contacts" class="hero-button">
+        Обсудить сотрудничество →
+      </a>
+
+      <div class="hero-note">
+        ВАША БЕЗОПАСНОСТЬ И СТАБИЛЬНОСТЬ — НАШ ПРИОРИТЕТ
+      </div>
+
+    </div>
+
+    <!-- АВТОРСКАЯ ИЛЛЮСТРАЦИЯ: КАЛЬКУЛЯТОР И РУЧКА -->
+
+    <div class="illustration">
+
+      <svg viewBox="0 0 500 470" xmlns="http://www.w3.org/2000/svg">
+
+        <defs>
+          <linearGradient id="calcBody" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0%" stop-color="#315d43"/>
+            <stop offset="100%" stop-color="#092b20"/>
+          </linearGradient>
+
+          <linearGradient id="penBody" x1="0" y1="0" x2="1" y2="0">
+            <stop offset="0%" stop-color="#092b20"/>
+            <stop offset="45%" stop-color="#477d5a"/>
+            <stop offset="100%" stop-color="#123b2a"/>
+          </linearGradient>
+
+          <linearGradient id="gold" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0%" stop-color="#ead6a2"/>
+            <stop offset="100%" stop-color="#a8894d"/>
+          </linearGradient>
+        </defs>
+
+        <!-- Фоновая окружность -->
+
+        <circle cx="255" cy="225" r="190" fill="#d4e9d5"/>
+        <circle cx="255" cy="225" r="158"
+          fill="none" stroke="#9fc4a5" stroke-width="1.5"
+          stroke-dasharray="5 9"/>
+
+        <!-- Декоративные элементы -->
+
+        <circle cx="80" cy="110" r="8" fill="#82b48e"/>
+        <circle cx="420" cy="310" r="11" fill="#9cc5a0"/>
+        <path d="M60 350 L85 325 L110 350"
+          fill="none" stroke="#9cc5a0" stroke-width="3"/>
+
+        <!-- КАЛЬКУЛЯТОР -->
+
+        <g transform="rotate(-9 255 235)">
+
+          <rect x="125" y="62" width="235" height="325"
+            rx="29" fill="url(#calcBody)"/>
+
+          <rect x="137" y="74" width="211" height="301"
+            rx="22" fill="none" stroke="#78a989"
+            stroke-opacity=".3" stroke-width="2"/>
+
+          <!-- Дисплей -->
+
+          <rect x="151" y="92" width="183" height="70"
+            rx="11" fill="#d5e8d2"/>
+
+          <text x="165" y="122" font-size="10"
+            fill="#54745c" font-family="Manrope">LIMBERT FINANCE</text>
+
+          <text x="317" y="148" font-size="27"
+            fill="#123d2a" text-anchor="end"
+            font-weight="800" font-family="Manrope">40%</text>
+
+          <!-- Кнопки калькулятора -->
+
+          <g fill="#dceade">
+            <rect x="151" y="181" width="36" height="34" rx="7"/>
+            <rect x="200" y="181" width="36" height="34" rx="7"/>
+            <rect x="249" y="181" width="36" height="34" rx="7"/>
+            <rect x="298" y="181" width="36" height="34" rx="7"/>
+
+            <rect x="151" y="228" width="36" height="34" rx="7"/>
+            <rect x="200" y="228" width="36" height="34" rx="7"/>
+            <rect x="249" y="228" width="36" height="34" rx="7"/>
+            <rect x="298" y="228" width="36" height="34" rx="7"/>
+
+            <rect x="151" y="275" width="36" height="34" rx="7"/>
+            <rect x="200" y="275" width="36" height="34" rx="7"/>
+            <rect x="249" y="275" width="36" height="34" rx="7"/>
+            <rect x="298" y="275" width="36" height="34" rx="7"/>
+          </g>
+
+          <g fill="#286b49" font-size="14"
+            font-family="Manrope" font-weight="800"
+            text-anchor="middle">
+            <text x="169" y="203">7</text>
+            <text x="218" y="203">8</text>
+            <text x="267" y="203">9</text>
+            <text x="316" y="203">÷</text>
+
+            <text x="169" y="250">4</text>
+            <text x="218" y="250">5</text>
+            <text x="267" y="250">6</text>
+            <text x="316" y="250">×</text>
+
+            <text x="169" y="297">1</text>
+            <text x="218" y="297">2</text>
+            <text x="267" y="297">3</text>
+            <text x="316" y="297">=</text>
+          </g>
+
+          <rect x="151" y="322" width="183" height="37"
+            rx="8" fill="#79aa83"/>
+
+          <text x="242" y="346" text-anchor="middle"
+            font-family="Manrope" font-size="13"
+            font-weight="800" fill="#103d2c">BUSINESS</text>
+
+        </g>
+
+        <!-- РУЧКА -->
+
+        <g transform="rotate(37 250 220)">
+
+          <!-- Корпус -->
+
+          <rect x="359" y="35" width="22" height="350"
+            rx="11" fill="url(#penBody)"
+            stroke="#b7d0a9" stroke-width="1.5"/>
+
+          <!-- Золотые кольца -->
+
+          <rect x="359" y="67" width="22" height="5"
+            fill="url(#gold)"/>
+
+          <rect x="359" y="350" width="22" height="8"
+            fill="url(#gold)"/>
+
+          <!-- Колпачок -->
+
+          <path d="M359 45 Q370 12 381 45 L381 67 L359 67 Z"
+            fill="#477d5a"/>
+
+          <path d="M359 48 L350 70 L359 76"
+            fill="none" stroke="url(#gold)" stroke-width="4"/>
+
+          <!-- Фирменная надпись на ручке -->
+
+          <text x="370" y="190"
+            transform="rotate(90 370 190)"
+            text-anchor="middle"
+            font-family="Manrope"
+            font-size="10"
+            font-weight="800"
+            letter-spacing="1.4"
+            fill="#f1e6c9">LIMBERT</text>
+
+          <!-- Наконечник -->
+
+          <path d="M359 385 L381 385 L370 420 Z"
+            fill="#c5a96d"/>
+
+          <path d="M366 407 L370 420 L374 407"
+            fill="#263e30"/>
+
+        </g>
+
+        <!-- Декоративная подпись -->
+
+        <rect x="45" y="397" width="160" height="38"
+          rx="19" fill="#ffffff" opacity=".9"/>
+
+        <text x="125" y="421" text-anchor="middle"
+          font-family="Manrope" font-size="11"
+          font-weight="800" letter-spacing="2"
+          fill="#286b49">LIMBERT</text>
+
+      </svg>
+
+    </div>
+
+  </div>
+</section>
+
+<!-- ПРЕИМУЩЕСТВА -->
+
+<section class="content-section benefits">
+  <div class="container">
+
+    <div class="section-label">Наши преимущества</div>
+
+    <h2 class="section-title">
+      Профессиональная команда<br>
+      для вашего бизнеса
+    </h2>
+
+    <p class="section-description">
+      Мы объединяем специалистов разных направлений,
+      чтобы обеспечить стабильную работу вашей компании
+      и освободить ваше время для развития бизнеса.
+    </p>
+
+    <div class="benefit-grid">
+
+      <div class="benefit-card">
+        <div class="card-icon">👥</div>
+        <h3>Команда вместо одного человека</h3>
+        <p>
+          За вашим бизнесом закрепляется не один универсал,
+          а целая команда профильных экспертов.
+          Работа не встанет из-за чьего-то больничного
+          или отпуска.
+        </p>
+      </div>
+
+      <div class="benefit-card">
+        <div class="card-icon">🔒</div>
+        <h3>Полная конфиденциальность и NDA</h3>
+        <p>
+          Строго соблюдаем коммерческую тайну и защищаем
+          ваши данные. Перед началом работы подписываем
+          официальное соглашение о неразглашении (NDA).
+        </p>
+      </div>
+
+      <div class="benefit-card">
+        <div class="card-icon">📈</div>
+        <h3>Оптимизация расходов</h3>
+        <p>
+          Помогаем рационально распределять ресурсы,
+          оптимизировать расходы на содержание специалистов
+          и повышать эффективность бизнес-процессов.
+        </p>
+      </div>
+
+      <div class="benefit-card">
+        <div class="card-icon">⚙️</div>
+        <h3>Единая система управления</h3>
+        <p>
+          Объединяем бухгалтерские, юридические,
+          кадровые и административные процессы
+          в единую систему сопровождения бизнеса.
+        </p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ИНСТРУМЕНТЫ -->
+
+<section class="content-section tools">
+  <div class="container">
+
+    <div class="section-label">Наши компетенции</div>
+
+    <h2 class="section-title">
+      Все инструменты бизнеса<br>
+      в одной управляющей компании
+    </h2>
+
+    <p class="section-description">
+      Комплексное профессиональное сопровождение
+      ключевых направлений деятельности.
+    </p>
+
+    <div class="tag-grid">
+      <span class="tag">Бухгалтерский учет</span>
+      <span class="tag">Налоговый учет</span>
+      <span class="tag">Кадровое делопроизводство</span>
+      <span class="tag">Расчет заработной платы</span>
+      <span class="tag">Юридическое сопровождение</span>
+      <span class="tag">Экономический анализ</span>
+      <span class="tag">Финансовый контроль</span>
+      <span class="tag">Тендерный отдел</span>
+      <span class="tag">IT-поддержка</span>
+      <span class="tag">Управление бизнесом</span>
+      <span class="tag">Документооборот</span>
+      <span class="tag">Отчетность</span>
+    </div>
+
+  </div>
+</section>
+
+<!-- 4 КЕЙСА -->
+
+<section class="content-section cases">
+  <div class="container">
+
+    <div class="section-label">Практические решения</div>
+
+    <h2 class="section-title">
+      Решаем задачи бизнеса<br>
+      комплексно
+    </h2>
+
+    <p class="section-description">
+      Четыре ключевых направления, в которых
+      профессиональная команда берет на себя
+      операционные задачи компании.
+    </p>
+
+    <div class="case-grid">
+
+      <div class="case-card">
+        <div class="case-number">01</div>
+        <h3>Бухгалтерия и налоги</h3>
+        <p>
+          Организация бухгалтерского и налогового учета,
+          подготовка отчетности, контроль налоговых рисков,
+          сверки с налоговыми органами и сопровождение
+          налоговых проверок.
+        </p>
+      </div>
+
+      <div class="case-card">
+        <div class="case-number">02</div>
+        <h3>Кадры и заработная плата</h3>
+        <p>
+          Кадровое делопроизводство, расчет заработной платы,
+          отпускных, больничных, компенсаций и контроль
+          соблюдения требований трудового законодательства.
+        </p>
+      </div>
+
+      <div class="case-card">
+        <div class="case-number">03</div>
+        <h3>Юридическое и экономическое сопровождение</h3>
+        <p>
+          Договорная работа, правовая экспертиза,
+          претензионная работа, финансовый анализ,
+          бюджетирование и оценка экономической эффективности.
+        </p>
+      </div>
+
+      <div class="case-card">
+        <div class="case-number">04</div>
+        <h3>Тендеры, IT и управление</h3>
+        <p>
+          Сопровождение участия в закупках, IT-поддержка,
+          организация документооборота, контроль
+          бизнес-процессов и административное управление.
+        </p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- БЕЗОПАСНОСТЬ -->
+
+<section class="content-section security">
+  <div class="container">
+
+    <div class="security-box">
+
+      <div>
+        <div class="section-label">Надежность и доверие</div>
+
+        <h2>
+          Ваша безопасность и стабильность —
+          наш приоритет
+        </h2>
+
+        <p>
+          Мы понимаем ценность финансовой информации,
+          деловой репутации и непрерывности бизнес-процессов.
+          Выстраиваем сотрудничество на принципах
+          конфиденциальности, профессионализма
+          и ответственности.
+        </p>
+      </div>
+
+      <div class="shield">🛡️</div>
+
+    </div>
+
+  </div>
+</section>
+
+<!-- КОНТАКТЫ -->
+
+<section class="contacts" id="contacts">
+  <div class="container">
+
+    <div class="section-label">LIMBERT</div>
+
+    <h2>
+      Сосредоточьтесь<br>
+      на развитии бизнеса
+    </h2>
+
+    <p>
+      Доверьте операционные процессы профессиональной команде.
+      Мы готовы обсудить задачи вашей компании.
+    </p>
+
+    <div class="contact-links">
+
+      <a href="tel:+79136335346">
+        ☎ +7 913 633 53 46
+      </a>
+
+      <a href="mailto:limbertoksana@yandex.ru">
+        ✉ limbertoksana@yandex.ru
+      </a>
+
+    </div>
+
+  </div>
+</section>
+
+</main>
+
+<footer>
+  LIMBERT © 2026 | КОМПЛЕКСНЫЙ АУТСОРСИНГ ДЛЯ БИЗНЕСА
+</footer>
+
+</body>
+</html>
